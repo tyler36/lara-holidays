@@ -15,3 +15,16 @@ Carbon::mixin(new class {
         };
     }
 });
+
+CarbonImmutable::mixin(new class {
+    /**
+     * Check if day is considered a holiday. Uses current locale
+     *
+     * @return bool
+     */
+    public function isHoliday() {
+        return function () {
+            return LaraHolidays::isHoliday($this);
+        };
+    }
+});
